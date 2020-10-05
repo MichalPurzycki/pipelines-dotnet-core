@@ -83,5 +83,5 @@ steps:
     azureSubscription: Azure
     azurePowerShellVersion: LatestVersion
     inline: |
-      New-AzResourceGroup -Name 'Marian' -Location 'norteurope'
+      New-AzResourceGroup -Name 'Marian' -Location 'northeurope'
 
