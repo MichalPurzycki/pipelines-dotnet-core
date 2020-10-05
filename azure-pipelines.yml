@@ -49,13 +49,6 @@ steps:
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
     
 
-
-- task: DotNetCoreCLI@2
-  displayName: 'Install dotnetsay'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install -g dotnetsay'
     
 
 #steps:
@@ -84,6 +77,9 @@ steps:
   
 
   
-
-
+- task: PowerShell@2
+  inputs:
+    targetType: inline
+    script: |
+      New-AzResourceGroup -Name 'Marian' -Location 'norteurope'
 
