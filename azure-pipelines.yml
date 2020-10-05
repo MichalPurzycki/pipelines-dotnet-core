@@ -79,9 +79,9 @@ steps:
   
 - task: AzurePowerShell@4
   inputs:
-    targetType: inline
+    scriptType: InlineScript
     azureSubscription: Azure
     azurePowerShellVersion: LatestVersion
-    script: |
+    inline: |
       New-AzResourceGroup -Name 'Marian' -Location 'norteurope'
 
