@@ -25,7 +25,7 @@ jobs:
       
   # do this before your build tasks
   - task: DotNetCoreCLI@2
-    displayName: Restore depedence
+    displayName: 'Restore depedence'
     inputs:
       command: restore
       projects: '**/*.csproj'
@@ -35,7 +35,7 @@ jobs:
   # ...    
   
   - task: DotNetCoreCLI@2
-    displayName: Build project
+    displayName: 'Build project'
     inputs:
       command: build
       projects: '**/*.csproj'
@@ -56,7 +56,7 @@ jobs:
   
   - task: DotNetCoreCLI@2
     inputs:
-      displayName: Artifact configuration
+      displayName: 'Artifact configuration'
       command: publish
       publishWebProjects: True
       arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
@@ -64,7 +64,7 @@ jobs:
     
     # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
   - task: PublishBuildArtifacts@1
-    displayName: publish Artifact
+    displayName: 'publish Artifact'
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
       artifactName: 'myWebsiteName'   
@@ -72,7 +72,7 @@ jobs:
   
     
   - task: AzurePowerShell@4
-    displayName: create resource group on Azure
+    displayName: 'create resource group on Azure'
     inputs:
       scriptType: InlineScript
       azureSubscription: Azure
