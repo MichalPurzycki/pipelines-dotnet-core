@@ -16,7 +16,7 @@ jobs:
 - job: First app
 
   steps:      
-  - task: Build environment
+  - task: UseDotNet@2
     displayName: 'Install .NET Core SDK'
     inputs:
       version: 2.x
@@ -24,8 +24,8 @@ jobs:
       includePreviewVersions: true # Required for preview versions  
       
   # do this before your build tasks
-  - task: Restore dependencies
-    displayName: Restore
+  - task: DotNetCoreCLI@2
+    displayName: Restore depedence
     inputs:
       command: restore
       projects: '**/*.csproj'
@@ -34,8 +34,8 @@ jobs:
   #    externalFeedCredentials: <Name of the NuGet service connection>#
   # ...    
   
-  - task: Build project
-    displayName: Build
+  - task: DotNetCoreCLI@2
+    displayName: Build project
     inputs:
       command: build
       projects: '**/*.csproj'
@@ -45,7 +45,8 @@ jobs:
   #steps:
   # ...
   # do this after other tasks such as building
-  - task: Testing
+  - task: DotNetCoreCLI@2
+    displayName: Testing
     inputs:
       command: test
       projects: '**/*Tests/*.csproj'
@@ -55,6 +56,7 @@ jobs:
   
   - task: DotNetCoreCLI@2
     inputs:
+      displayName: Artifact configuration
       command: publish
       publishWebProjects: True
       arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
@@ -62,6 +64,7 @@ jobs:
     
     # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
   - task: PublishBuildArtifacts@1
+    displayName: publish Artifact
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
       artifactName: 'myWebsiteName'   
@@ -69,6 +72,7 @@ jobs:
   
     
   - task: AzurePowerShell@4
+    displayName: create resource group on Azure
     inputs:
       scriptType: InlineScript
       azureSubscription: Azure
