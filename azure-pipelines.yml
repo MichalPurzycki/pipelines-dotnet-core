@@ -13,7 +13,7 @@ variables:
   buildConfiguration: 'Release'
 
 jobs:
-- job: 'First app'
+- job: FirstApp
 
   steps:      
   - task: UseDotNet@2
