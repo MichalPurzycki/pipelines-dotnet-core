@@ -64,4 +64,4 @@ jobs:
       azureSubscription: Azure
       azurePowerShellVersion: LatestVersion
       inline: |
-        New-AzResourceGroup -Name 'Marian' -Location 'northeurope'
+        New-AzResourceGroup -Name 'Marian2' -Location 'northeurope'
