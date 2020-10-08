@@ -15,4 +15,12 @@ stages:
 - stage: dev1
   jobs:
   - template: release-template.yml
+    parameters:
+      vmImage: ubuntu-18.04
+      environmentName: dev1
+      location: northeurope
+      locationAcronym: eun
+      azureSubscriptionServiceConnection: Azure
+      dependsOn:
+      - build
   
