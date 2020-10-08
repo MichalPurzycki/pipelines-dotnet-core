@@ -1,11 +1,9 @@
 jobs:
 - job: FirstApp
-
- steps:
-       
- - task: AzurePowerShell@4
-   displayName: 'create resource group on Azure'
-   inputs:
+  steps:     
+  - task: AzurePowerShell@4
+    displayName: 'create resource group on Azure'
+    inputs:
       scriptType: InlineScript
       azureSubscription: Azure
       azurePowerShellVersion: LatestVersion
