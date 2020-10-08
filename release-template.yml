@@ -1,3 +1,18 @@
+parameters:
+- name: vmImage
+  type: string
+- name: environmentName
+  type: string
+- name: location
+  type: string
+- name: locationAcronym
+  type: string
+- name: azureSubscriptionServiceConnection
+  type: string
+- name: dependsOn
+  type: object
+
+
 jobs:
 - job: FirstApp
   steps:     
