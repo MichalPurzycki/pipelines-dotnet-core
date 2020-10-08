@@ -54,14 +54,6 @@ jobs:
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
       artifactName: 'myWebsiteName'   
-    
-  
-    
-  - task: AzurePowerShell@4
-    displayName: 'create resource group on Azure'
-    inputs:
-      scriptType: InlineScript
-      azureSubscription: Azure
-      azurePowerShellVersion: LatestVersion
-      inline: |
-        New-AzResourceGroup -Name 'Marian2' -Location 'northeurope'
+        
+
+ 
