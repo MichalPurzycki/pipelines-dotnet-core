@@ -20,7 +20,7 @@ jobs:
     displayName: 'create resource group on Azure'
     inputs:
       scriptType: InlineScript
-      azureSubscription: Azure
+      azureSubscription: ${{parameters.azureSubscriptionServiceConnection}}
       azurePowerShellVersion: LatestVersion
       inline: |
-        New-AzResourceGroup -Name 'Marian2' -Location 'northeurope'
+        New-AzResourceGroup -Name 'app-${{parameters.environmentName}}-${{parameters.locationAcronym}}-rg' -Location '${{parameters.location}}'
