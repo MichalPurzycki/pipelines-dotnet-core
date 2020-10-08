@@ -9,6 +9,10 @@ variables:
   
   
 stages:
-- stage: Create
+- stage: build
   jobs:
   - template: template-azure.yml
+- stage: dev1
+  jobs:
+  - template: release-template.yml
+  
